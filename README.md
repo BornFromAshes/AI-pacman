@@ -127,7 +127,18 @@ Heuristics are functions that take a search condition as input and return a numb
 Obvious heuristics of cases that are zero everywhere (UCS) or heuristics that cost
 They calculate the actual completion. The former won't save you any time, and the latter will cause the autograder to time out. We need a heuristic that reduces the total calculation time.
 ## Eating all the points
-
+In this section, we are going to solve a hard search problem: eat all Pacman foods in the least number of steps possible. So we need to define a new search problem that formulates the food cleaning problem, for this purpose the FoodSearchProblem class is implemented in the searchAgents.py file. An acceptable answer is a path
+to collect all the food items in the Pacman world. For the current project, the solutions do not consider any souls or power pellets. The answers depend only on the location of the walls, food and pacman.(Of course, ghosts can ruin the implementation of a solution! We will get to it in the next project.)
+```
+python pacman.py -l testSearch -p AStarFoodSearchAgent
+```
+## Suboptimal search
+Sometimes, even with the help of A* algorithm and a suitable heuristic, it becomes difficult to find the optimal path among all the points. In these cases, we still want to find a good way quickly. In this section, you write an agent that always greedily eats the closest dot. For this purpose, the ClosestDotSearchAgent class is implemented in the searchAgents.py file.
+```
+python pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5
+```
+## Known Issues
+There aren't currently any issues so far so if you find any please create an issue on this repository. Any suggestions for implementation would also be greatly appreciated.
 
 
 
